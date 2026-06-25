@@ -1,15 +1,52 @@
 
+const allJobPortalBtn = document.getElementById('allJobPortal');
+const interviewPortalBtn = document.getElementById('interviewPortal');
+const rejectedPortalBtn = document.getElementById('rejectedPortal');
+
+const jobList = document.getElementById("joblist");
+const interviewSection = document.getElementById('interviewSection');
+const rejectionSection = document.getElementById('rejectionSection');
+
 const totalJob = document.getElementById("totalJob");
 const showInterview = document.getElementById("showInterview");
 const showReject = document.getElementById("showReject");
-const jobList = document.getElementById("joblist");
 const showJobs = document.getElementById("showJobs");
 
 
+
+const notApplied = document.getElementsByClassName('notApplied');
+const clickCardInterview = document.getElementsByClassName('clickCardInterview');
+const clickCardReject = document.getElementsByClassName('clickCardReject');
+
+
+
+
+allJobPortalBtn.addEventListener('click', function(event){
+    jobList.classList.remove('hidden');
+    interviewSection.classList.add('hidden');
+    rejectionSection.classList.add('hidden');
+})
+
+interviewPortalBtn.addEventListener('click', function(event){
+    jobList.classList.add('hidden');
+    interviewSection.classList.remove('hidden');
+    rejectionSection.classList.add('hidden');
+})
+
+rejectedPortalBtn.addEventListener('click', function(event){
+    jobList.classList.add('hidden');
+    interviewSection.classList.add('hidden');
+    rejectionSection.classList.remove('hidden');
+})
+
+
+
+// handle delete , interview and reject for all cards using event deligation
+
 jobList.addEventListener('click', function(event){
 
-    deleteBtn = event.target.closest('.delete-btn');
-    
+
+    const deleteBtn = event.target.closest('.delete-btn');
     if(deleteBtn){
       const jobcard = deleteBtn.closest('.job-card');
       jobcard.remove();
@@ -21,7 +58,34 @@ jobList.addEventListener('click', function(event){
       
       totalJob.innerHTML = availableTotalJob;
       showJobs.innerHTML = `${availableshowJobs} Jobs`;
+    }
 
+
+
+    // Interview button inside card
+
+    const cardInterviewBtn = event.target.closest('.clickCardInterview');
+    if(cardInterviewBtn){
+        const jobcard = cardInterviewBtn.closest('.job-card');
+        const status = jobcard.querySelector('.notApplied');
+        status.innerHTML = "Interview";
+        status.classList.remove( 'bg-blue-200', 'bg-red-300');
+        status.classList.add( 'bg-green-300', 'text-black');
+    }
+
+
+
+
+
+    // Reject button inside card
+
+     const cardRejectBtn = event.target.closest('.clickCardReject');
+    if(cardRejectBtn){
+        const jobcard = cardRejectBtn.closest('.job-card');
+        const status = jobcard.querySelector('.notApplied');
+        status.innerHTML = "Rejected";
+        status.classList.remove( 'bg-blue-200');
+        status.classList.add( 'bg-red-300', 'text-black');
     }
 
 })
