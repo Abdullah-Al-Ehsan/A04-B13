@@ -71,7 +71,22 @@ jobList.addEventListener('click', function(event){
         status.innerHTML = "Interview";
         status.classList.remove( 'bg-blue-200', 'bg-red-300');
         status.classList.add( 'bg-green-300', 'text-black');
+
+        interviewSection.appendChild(jobcard);     // this jobcard (specific click hoyeche jetate), append in interview section
+                                                   // and remove from here
+        let interviewCount= parseInt(showInterview.innerHTML);
+        interviewCount += 1;
+        showInterview.innerHTML = interviewCount;
+
+        let availableTotalJob = parseInt(totalJob.innerHTML);
+        let availableshowJobs = parseInt(showJobs.innerHTML[0]);
+        totalJob.innerHTML = availableTotalJob - 1;
+        showJobs.innerHTML = `${availableshowJobs - 1} Jobs`;
     }
+
+
+
+
 
 
 
@@ -86,7 +101,19 @@ jobList.addEventListener('click', function(event){
         status.innerHTML = "Rejected";
         status.classList.remove( 'bg-blue-200');
         status.classList.add( 'bg-red-300', 'text-black');
+
+
+        rejectionSection.appendChild(jobcard);
+          
+        let rejectionCount= parseInt(showReject.innerHTML);
+        rejectionCount += 1;
+        showReject.innerHTML = rejectionCount;
+
+        let availableTotalJob = parseInt(totalJob.innerHTML);
+        let availableshowJobs = parseInt(showJobs.innerHTML[0]);
+        totalJob.innerHTML = availableTotalJob - 1;
+        showJobs.innerHTML = `${availableshowJobs - 1} Jobs`;
+
     }
 
 })
-
