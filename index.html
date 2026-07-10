@@ -5,21 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Job Application Tracker</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  
 </head>
-
-
-
 
 <body class="bg-slate-200 min-h-screen font-sans">
 
- 
     <div class="max-w-6xl mx-auto px-10 py-10">
 
     <h1 class="text-2xl font-bold text-gray-900 mb-6">Job Application Tracker</h1>
-    
-    
-     <!-- for navbar section --> 
+
+
+     <!-- for navbar section -->
       <div class="flex gap-10 mb-8 pb-6">
         <div class=" bg-white px-26 py-8 rounded-xl">
             <p class="text-sm text-black-500 mb-1">Total</p>
@@ -36,17 +31,14 @@
       </div>
 
 
-
-
-    <!-- for job section -->
-     
+    <!-- fpr job section -->
     <div class="flex items-center justify-between mb-4">
       <h2 class="text-sm font-semibold text-gray-800">Available Jobs</h2>
-      <span id="showJobs" class=" text-xs font-semibold text-gray-500">8 jobs</span>
+      <span id="showJobs" class=" text-xs font-semibold text-gray-500">8 Jobs</span>
     </div>
 
 
-    <!-- filtering job section -->
+    <!-- All, Interview, Rejected (job filtering)-->
     <div class="flex gap-1 mb-5">
       <button id ="allJobPortal" class="px-3 py-1 text-xs font-medium bg-blue-600 text-white rounded">All</button>
       <button id="interviewPortal" class="px-3 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100 rounded">Interview</button>
@@ -56,10 +48,10 @@
 
 
     <!-- all job list section -->
-    <div id="joblist" class="hidden">
+    <div id="joblist">
 
       <!-- Card 1 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="1">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">Mobile First Corp</p>
@@ -74,11 +66,12 @@
           </div>
           <button class="delete-btn">
             <img class="w-6 h-6 mr-8 cursor-pointer" src="delete.png" alt="delete">
+          </button>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="2">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">WebFlow Agency</p>
@@ -96,8 +89,9 @@
           </button>
         </div>
       </div>
- <!-- Card 3 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+
+      <!-- Card 3 -->
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="3">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">DataViz Solutions</p>
@@ -117,7 +111,7 @@
       </div>
 
       <!-- Card 4 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="4">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">CloudFirst Inc</p>
@@ -137,12 +131,12 @@
       </div>
 
       <!-- Card 5 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="5">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">Innovation Labs</p>
             <p class="text-xs text-gray-600 mb-1">UI/UX Engineer</p>
-            <p class="text-xs text-gray-500 mb-2">Austin, TX · Full-time · $110,000 – $160,000</p>
+            <p class="text-xs text-gray-500 mb-2">Austin, TX · Full-time · $110,000 - $160,000</p>
            <span class=" notApplied bg-blue-200 inline-block text-[10px] font-bold text-black border border-blue-300 px-2 py-0.5 rounded mb-2">NOT APPLIED</span>
             <p class="text-xs text-gray-500 mb-3">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
             <div class="flex gap-2">
@@ -157,12 +151,12 @@
       </div>
 
       <!-- Card 6 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="6">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">MegaCorp Solutions</p>
             <p class="text-xs text-gray-600 mb-1">JavaScript Developer</p>
-            <p class="text-xs text-gray-500 mb-2">New York, NY · Full-time · $130,000 – $170,000</p>
+            <p class="text-xs text-gray-500 mb-2">New York, NY · Full-time · $130,000 - $170,000</p>
            <span class=" notApplied bg-blue-200 inline-block text-[10px] font-bold text-black border border-blue-300 px-2 py-0.5 rounded mb-2">NOT APPLIED</span>
             <p class="text-xs text-gray-500 mb-3">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
             <div class="flex gap-2">
@@ -177,7 +171,7 @@
       </div>
 
       <!-- Card 7 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="7">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">StartupXYZ</p>
@@ -196,8 +190,8 @@
         </div>
       </div>
 
-      <!-- card 8 -->
-      <div class=" job-card py-8 bg-white px-4 my-4 rounded-2xl">
+      <!-- Card 8 -->
+      <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="8">
         <div class="flex justify-between items-start">
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">TechCorp Industries</p>
@@ -214,21 +208,19 @@
             <img class="w-6 h-6 mr-8 cursor-pointer" src="delete.png" alt="delete">
           </button>
         </div>
+      </div>
+
     </div>
+</div>
 
 
-
-
-
-
-
-     <div id="interviewSection"  class="hidden">
-
-
+     <div id="interviewSection" class="hidden">
+      
      </div>
 
 
-     <div id="rejectionSection"  class="hidden"></div>
+     <div id="rejectionSection" class="hidden">
+     </div>
 
       <script src="app.js"></script>
 
