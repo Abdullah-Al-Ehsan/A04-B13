@@ -42,7 +42,16 @@ function refreshJobs(){
     showAvailableJobs.innerHTML = `${getTotal()} Jobs`;
     AvailableInterviewJobs.innerHTML = `${parseInt(showInterview.innerHTML)} of ${getTotal()} jobs`;
     AvailableRejectedJobs.innerHTML = `${parseInt(showReject.innerHTML)} of ${getTotal()} jobs`;
+
+    if(showInterview.innerHTML === '0') {
+        interviewSection.innerHTML = `<p class="text-center text-gray-500">No available jobs </p>   <img class="mx-auto" src="jobs.png" alt="No jobs">`;
+    }
+    if(showReject.innerHTML === '0') {
+        rejectionSection.innerHTML = `<p class="text-center text-gray-500">No available jobs </p>   <img class="mx-auto" src="jobs.png" alt="No jobs">`;
+    }
 }
+
+
 
 function findCardById(section, jobId) {                                 //.job-card[] -> dataset)
     return section.querySelector(`.job-card[data-job-id="${jobId}"]`);   //return null or <class="job-card" data-job-id="1 or something">
