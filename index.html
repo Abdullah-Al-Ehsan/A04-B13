@@ -9,7 +9,7 @@
 
 <body class="bg-slate-200 min-h-screen font-sans">
 
-    <div class="max-w-6xl mx-auto px-10 py-10">
+  <div class="max-w-6xl mx-auto px-10 py-10">
 
     <h1 class="text-2xl font-bold text-gray-900 mb-6">Job Application Tracker</h1>
 
@@ -31,24 +31,22 @@
       </div>
 
 
-    <!-- fpr job section -->
-    <div class="flex items-center justify-between mb-4">
-      <h2 class="text-sm font-semibold text-gray-800">Available Jobs</h2>
-      <span id="showJobs" class=" text-xs font-semibold text-gray-500">8 Jobs</span>
-    </div>
-
-
     <!-- All, Interview, Rejected (job filtering)-->
     <div class="flex gap-1 mb-5">
-      <button id ="allJobPortal" class="px-3 py-1 text-xs font-medium bg-blue-600 text-white rounded">All</button>
-      <button id="interviewPortal" class="px-3 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100 rounded">Interview</button>
-      <button id ="rejectedPortal" class="px-3 py-1 text-xs font-medium text-gray-500 hover:bg-gray-100 rounded">Rejected</button>
+      <button id ="allJobPortal" class="px-3 py-1 text-xs font-medium  bg-blue-600 text-black rounded cursor-pointer">All</button>
+      <button id="interviewPortal" class="px-3 py-1 text-xs font-medium text-black rounded cursor-pointer">Interview</button>
+      <button id ="rejectedPortal" class="px-3 py-1 text-xs font-medium text-black rounded cursor-pointer">Rejected</button>
     </div>
 
 
-
+       
     <!-- all job list section -->
     <div id="joblist">
+
+      <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xs font-semibold text-gray-500">Available Jobs</h2>
+      <span id="showAvailableJobs" class=" text-xs font-semibold text-gray-500">8 Jobs</span>
+    </div>
 
       <!-- Card 1 -->
       <div class="job-card py-8 bg-white px-4 my-4 rounded-2xl" data-job-id="1">
@@ -76,7 +74,7 @@
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">WebFlow Agency</p>
             <p class="text-xs text-gray-600 mb-1">Web Designer & Developer</p>
-            <p class="text-xs text-gray-500 mb-2">Los Angeles, CA · Part-time · $80,000 – $125,000</p>
+            <p class="text-xs text-gray-500 mb-2">Los Angeles, CA · Part-time · $80,000 - $125,000</p>
            <span class=" notApplied bg-blue-200 inline-block text-[10px] font-bold text-black border border-blue-300 px-2 py-0.5 rounded mb-2">NOT APPLIED</span>
             <p class="text-xs text-gray-500 mb-3">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
             <div class="flex gap-2">
@@ -96,7 +94,7 @@
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">DataViz Solutions</p>
             <p class="text-xs text-gray-600 mb-1">Data Visualization Specialist</p>
-            <p class="text-xs text-gray-500 mb-2">Boston, MA · Full-time · $125,000 – $165,000</p>
+            <p class="text-xs text-gray-500 mb-2">Boston, MA · Full-time · $125,000 - $165,000</p>
            <span class=" notApplied bg-blue-200 inline-block text-[10px] font-bold text-black border border-blue-300 px-2 py-0.5 rounded mb-2">NOT APPLIED</span>
             <p class="text-xs text-gray-500 mb-3">Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.</p>
             <div class="flex gap-2">
@@ -116,7 +114,7 @@
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">CloudFirst Inc</p>
             <p class="text-xs text-gray-600 mb-1">Backend Developer</p>
-            <p class="text-xs text-gray-500 mb-2">Seattle, WA · Full-time · $140,000 – $190,000</p>
+            <p class="text-xs text-gray-500 mb-2">Seattle, WA · Full-time · $140,000 - $190,000</p>
            <span class=" notApplied bg-blue-200 inline-block text-[10px] font-bold text-black border border-blue-300 px-2 py-0.5 rounded mb-2">NOT APPLIED</span>
             <p class="text-xs text-gray-500 mb-3">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
             <div class="flex gap-2">
@@ -176,7 +174,7 @@
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">StartupXYZ</p>
             <p class="text-xs text-gray-600 mb-1">Full Stack Engineer</p>
-            <p class="text-xs text-gray-500 mb-2">Remote · Full-time · $120,000 – $160,000</p>
+            <p class="text-xs text-gray-500 mb-2">Remote · Full-time · $120,000 - $160,000</p>
            <span class=" notApplied bg-blue-200 inline-block text-[10px] font-bold text-black border border-blue-300 px-2 py-0.5 rounded mb-2">NOT APPLIED</span>
             <p class="text-xs text-gray-500 mb-3">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
             <div class="flex gap-2">
@@ -196,7 +194,7 @@
           <div class="flex-1 min-w-0 pr-4">
             <p class="text-sm font-semibold text-black">TechCorp Industries</p>
             <p class="text-xs text-gray-600 mb-1">Senior Frontend Developer</p>
-            <p class="text-xs text-gray-500 mb-2">San Francisco, CA · Full-time · $130,000 – $175,000</p>
+            <p class="text-xs text-gray-500 mb-2">San Francisco, CA · Full-time · $130,000 - $175,000</p>
             <span class=" notApplied bg-blue-200 inline-block text-[10px] font-bold text-black border border-blue-300 px-2 py-0.5 rounded mb-2">NOT APPLIED</span>
             <p class="text-xs text-gray-500 mb-3">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
             <div class="flex gap-2">
@@ -211,16 +209,28 @@
       </div>
 
     </div>
-</div>
+
 
 
      <div id="interviewSection" class="hidden">
+
+      <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xs font-semibold text-gray-500">Available Jobs</h2>
+      <span id="AvailableInterviewJobs" class=" text-xs font-semibold text-gray-500"></span>
+    </div>
+
       
      </div>
 
 
      <div id="rejectionSection" class="hidden">
+
+      <div class="flex items-center justify-between mb-4">
+      <h2 class="text-xs font-semibold text-gray-500">Available Jobs</h2>
+      <span id="AvailableRejectedJobs" class=" text-xs font-semibold text-gray-500"></span>
+    </div>
      </div>
+</div>
 
       <script src="app.js"></script>
 

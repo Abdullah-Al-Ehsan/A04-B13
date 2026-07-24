@@ -10,10 +10,7 @@ const rejectionSection = document.getElementById('rejectionSection');
 const totalJob = document.getElementById("totalJob");
 const showInterview = document.getElementById("showInterview");
 const showReject = document.getElementById("showReject");
-const showJobs = document.getElementById("showJobs");
-const showInterviewJobs = document.getElementById("showInterviewJobs");
-const showRejectJobs = document.getElementById("showRejectJobs");
-
+const showAvailableJobs = document.getElementById("showAvailableJobs");
 
 
 allJobPortalBtn.addEventListener('click', function () {
@@ -40,14 +37,15 @@ function getTotal() {
     return parseInt(totalJob.innerHTML);
 }
 
-function refreshJobsHeaders() {
-    showJobs.innerHTML = `${getTotal()} Jobs`;
-    showInterviewJobs.innerHTML = `${parseInt(showInterview.innerHTML)} of ${getTotal()} jobs`;
-    showRejectJobs.innerHTML = `${parseInt(showReject.innerHTML)} of ${getTotal()} jobs`;
+
+function refreshJobs(){
+    showAvailableJobs.innerHTML = `${getTotal()} Jobs`;
+    AvailableInterviewJobs.innerHTML = `${parseInt(showInterview.innerHTML)} of ${getTotal()} jobs`;
+    AvailableRejectedJobs.innerHTML = `${parseInt(showReject.innerHTML)} of ${getTotal()} jobs`;
 }
 
 function findCardById(section, jobId) {                                 //.job-card[] -> dataset)
-    return section.querySelector(`.job-card[data-job-id="${jobId}"]`);   //return null or <class="job-card" data-job-id="1">
+    return section.querySelector(`.job-card[data-job-id="${jobId}"]`);   //return null or <class="job-card" data-job-id="1 or something">
 }                                                 // when null?- jokhon oi card ta section(interview/rejected) e thakbena.
 
 
@@ -106,9 +104,36 @@ function moveJobStatus(jobId, target) {
         showReject.innerHTML = parseInt(showReject.innerHTML) + 1;
     }
 
-    refreshJobsHeaders();
+    refreshJobs();
 }
 
+
+
+
+
+allJobPortalBtn.addEventListener('click', function () {
+    allJobPortalBtn.classList.add('bg-blue-600', 'text-black');
+    interviewPortalBtn.classList.remove('bg-blue-600');
+    rejectedPortalBtn.classList.remove('bg-blue-600');
+
+});
+
+interviewPortalBtn.addEventListener('click', function () {
+    allJobPortalBtn.classList.remove('bg-blue-600');
+    interviewPortalBtn.classList.add('bg-blue-600', 'text-black');
+    rejectedPortalBtn.classList.remove('bg-blue-600');
+
+    refreshJobs();
+
+});
+
+rejectedPortalBtn.addEventListener('click', function () {
+    allJobPortalBtn.classList.remove('bg-blue-600');
+    interviewPortalBtn.classList.remove('bg-blue-600');
+    rejectedPortalBtn.classList.add('bg-blue-600', 'text-black');
+
+    refreshJobs();
+});
 
 
 
@@ -118,6 +143,11 @@ function moveJobStatus(jobId, target) {
 //  joblist: 
 
 jobList.addEventListener('click', function (event) {
+
+
+    allJobPortalBtn.classList.add('bg-blue-600', 'text-black');
+    interviewPortalBtn.classList.remove('bg-blue-600');
+    rejectedPortalBtn.classList.remove('bg-blue-600');
 
     const jobcard = event.target.closest('.job-card');
     if(!jobcard) return;
@@ -143,7 +173,7 @@ jobList.addEventListener('click', function (event) {
         }
 
         totalJob.innerHTML = getTotal()-1;
-        refreshJobsHeaders();
+        refreshJobs();
         return;
     }
 
@@ -166,6 +196,12 @@ jobList.addEventListener('click', function (event) {
 
 interviewSection.addEventListener('click', function(event) {
 
+
+    allJobPortalBtn.classList.remove('bg-blue-600');
+    interviewPortalBtn.classList.add('bg-blue-600');
+    rejectedPortalBtn.classList.remove('bg-blue-600');
+
+
     const jobcard = event.target.closest('.job-card');
     if(!jobcard) return;
     const jobId = jobcard.dataset.jobId;
@@ -182,7 +218,7 @@ interviewSection.addEventListener('click', function(event) {
          status.innerHTML = "NOT APPLIED";
          status.classList.remove('bg-green-300', 'bg-red-300', 'text-black');
          status.classList.add('bg-blue-200');
-         refreshJobsHeaders();
+         refreshJobs();
          return;
     }
 
@@ -196,9 +232,9 @@ interviewSection.addEventListener('click', function(event) {
         moveJobStatus(jobId, 'interview');
         return;
     }
-});
-
-
+}); 
+  
+      
 
 
 
@@ -221,7 +257,7 @@ rejectionSection.addEventListener('click', function (event) {
          status.innerHTML = "NOT APPLIED";
          status.classList.remove('bg-green-300', 'bg-red-300', 'text-black');
          status.classList.add('bg-blue-200');
-         refreshJobsHeaders();
+         refreshJobs();
          return;
     }
 
